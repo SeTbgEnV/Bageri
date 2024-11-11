@@ -1,0 +1,38 @@
+
+--Run to show what´s been bought from who and to what price
+
+SELECT
+SalesOrders.Id AS OrderId,
+OrderDate AS OrderDatum,
+City AS 'Företags Ort',
+FirstName || ' ' || LastName AS 'Kontaktperson',
+Name AS Produkt,
+kgPrice AS 'Pris/kg',
+Quantity AS Kvantitet,
+kgPrice * Quantity * 0.12 AS Moms,
+kgPrice * Quantity AS 'Produkt pris',
+kgPrice * Quantity * 1.12 AS 'Totalt pris'
+FROM 
+SalesOrders INNER JOIN Suppliers
+ON SalesOrders.SupplierId = Suppliers.Id INNER JOIN Products
+ON SalesOrders.ProductId = Products.Id
+GROUP by SalesOrders.Id
+ORDER BY SupplierId;
+
+--Run to show how much to pay to what company and by what date
+-- And also to see from what compny dagny buys the most from
+
+SELECT
+OrderDate AS OrderDatum,
+FirstName || ' ' || LastName AS 'Kontaktperson',
+Email,
+SUM(kgPrice * Quantity * 0.12) AS Moms,
+SUM(kgPrice * Quantity) AS 'Produkt Pris',
+SUM(kgPrice * Quantity * 1.12) AS 'Totalt pris',
+DATE(OrderDate, '+30 days')  AS 'Förfallodatum'
+FROM 
+SalesOrders INNER JOIN Suppliers
+ON SalesOrders.SupplierId = Suppliers.Id 
+INNER JOIN Products ON SalesOrders.ProductId = Products.Id
+GROUP BY SupplierId
+ORDER BY SUM(kgPrice * Quantity) DESC;

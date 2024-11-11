@@ -1,0 +1,34 @@
+
+--RUN QUERIE FÖR ATT SE KONTAKTPERSONS INFO OCH PRISER FÖR RESPEKTIVE STÄLLE
+--Run Query to see what contact 
+
+SELECT
+FirstName || ' ' || LastName AS 'Kontaktperson',
+PhoneNumber AS 'Telefonnummer',
+City AS Stad
+FROM Suppliers;
+
+
+--Check Trelleborg Prices
+SELECT
+Name AS Produkter,
+kgPrice AS 'Trelleborgs Pris/Kg'
+FROM Products WHERE SupId = 1;
+
+--Check Malmö Prices
+SELECT
+Name AS Produkter,
+kgPrice AS 'Malmös Pris/Kg'
+FROM Products WHERE SupId = 2;
+
+--Check Göteborg Prices
+SELECT
+Name AS Produkter,
+kgPrice AS 'Göteborgs Pris/Kg'
+FROM Products WHERE SupId = 3;
+
+--Check Stockholm Prices
+SELECT
+Name AS Produkter,
+kgPrice AS 'Stockholms Pris/kg'
+FROM Products WHERE SupId = 4;

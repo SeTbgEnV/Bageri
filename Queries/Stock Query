@@ -1,0 +1,11 @@
+--Show Current stock
+
+SELECT
+ OrderDate AS 'Senast Order',
+ Name AS Produkter,
+ SUM(Quantity) AS 'KG i lager'
+FROM SalesOrders INNER JOIN Suppliers
+ON SalesOrders.SupplierId = Suppliers.Id INNER JOIN Products
+ON SalesOrders.ProductId = Products.Id
+GROUP BY Products.Name
+ORDER BY Sum(Quantity);

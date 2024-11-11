@@ -1,0 +1,21 @@
+--Check recipes and ingredient amnounts
+
+--Pannkakor
+SELECT
+Recipes.Name AS Recept,
+GROUP_CONCAT(Products.Name || ' ' || RecipeProducts.Quantity, ' ') AS 'Ingredienser (kg)'
+FROM
+RecipeProducts INNER JOIN Recipes 
+ON RecipeProducts.RecipeId = Recipes.Id INNER JOIN Products 
+ON RecipeProducts.ProductId = Products.Id
+WHERE RecipeProducts.RecipeId = 1;
+
+--Våfflor
+SELECT
+Recipes.Name AS Recept,
+GROUP_CONCAT(Products.Name || ' ' || RecipeProducts.Quantity, ' ') AS 'Ingredienser (kg)'
+FROM
+RecipeProducts INNER JOIN Recipes 
+ON RecipeProducts.RecipeId = Recipes.Id INNER JOIN Products 
+ON RecipeProducts.ProductId = Products.Id
+WHERE RecipeProducts.RecipeId = 2;

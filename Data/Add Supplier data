@@ -1,0 +1,44 @@
+--Add Supplier data
+
+INSERT INTO Suppliers(
+PhoneNumber,
+Email,
+FirstName,
+LastName,
+City,
+PostalCode,
+Street
+)VALUES
+(
+'0785-1111',
+'Erik.Davidsson@gmail.com',
+'Erik',
+'Davidsson',
+'Trelleborg',
+'23153',
+'Östergatan 2'
+),(
+'0785-2222',
+'David.Eriksson@gmail.com',
+'David',
+'Eriksson',
+'Malmö',
+'11568',
+'Sveavägen 4B'
+),(
+'0785-3333',
+'Markus.Sten@gmail.com',
+'Markus',
+'Sten',
+'Göteborg',
+'85673',
+'Nyvångsvägen 14'
+),(
+'0785-4444',
+'Dave.England@gmail.com',
+'Dave',
+'England',
+'Stockholm',
+'41567',
+'Götagatan 412'
+);

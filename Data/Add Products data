@@ -1,0 +1,22 @@
+--Add Products
+INSERT INTO Products(
+Name,
+KgPrice,
+SupId
+)VALUES
+('Ägg',10,1),
+('Mjöl',14,1),
+('Socker',30,1),
+('Saffran',1250,1),
+('Ägg',9,2),
+('Mjöl',10,2),
+('Socker',37,2),
+('Saffran',1225,2),
+('Ägg',15,3),
+('Mjöl',13,3),
+('Socker',29,3),
+('Saffran',1195,3),
+('Ägg',11,4),
+('Mjöl',15,4),
+('Socker',31,4),
+('Saffran',1275,4);

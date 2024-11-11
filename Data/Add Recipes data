@@ -1,0 +1,8 @@
+--Add data to Recipes
+
+INSERT INTO Recipes(
+Id,
+Name
+)VALUES
+(1,'SaffransPannkakor'),
+(2,'SaffransVåfflor');

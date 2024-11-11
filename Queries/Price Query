@@ -1,0 +1,22 @@
+
+--Show prices that are the lowest at what products and from whom
+
+SELECT
+FirstName || ' ' || LastName AS 'Kontaktperson',
+City,
+Name AS Produkt,
+kgPrice
+FROM Products INNER JOIN Suppliers 
+ON Products.SupId = Suppliers.Id
+ORDER BY kgPrice, Name;
+
+SELECT
+Suppliers.FirstName || ' ' || Suppliers.LastName AS 'Kontaktperson',
+Suppliers.City,
+GROUP_CONCAT(Products.Name || ' (' || Products.kgPrice || ')', ', ') AS 'Produkter och Priser'
+FROM
+Products
+INNER JOIN Suppliers 
+ON Products.SupId = Suppliers.Id
+GROUP BY Suppliers.Id
+ORDER BY Suppliers.FirstName, Suppliers.LastName;
